@@ -1,0 +1,6 @@
+@scope (.app) {
+    :scope {
+        margin: 10px;
+        text-align: center;
+    }
+}
