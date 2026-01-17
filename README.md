@@ -1,3 +1,13 @@
+---
+title: Sequence Sim
+emoji: ⚽
+colorFrom: blue
+colorTo: pink
+sdk: docker
+pinned: true
+short_description: Football passing sequence simulator
+---
+
 # TODO
 
 ## Deployed application
