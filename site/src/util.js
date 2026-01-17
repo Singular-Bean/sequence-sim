@@ -1,1 +1,1 @@
-export const hf_service_url=window.location.hostname.indexOf("localhost") >= 0 ? "http://localhost:7860" : "https://huggingface.co/xxxxxx"
+export const hf_service_url=window.location.hostname.indexOf("localhost") >= 0 ? "http://localhost:7860" : "https://singular-bean-sequence-sim.hf.space"
