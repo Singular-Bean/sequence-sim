@@ -49,6 +49,10 @@ def predictNextPass(df, xModel, yModel, temperature=0.75):
         simulated_y = np.random.normal(mu_y, sigma_y * temperature)
     return simulated_x, simulated_y
 
+@app.get("/")
+async def hello():
+    return {"success": True}
+
 @app.post("/")
 async def calc_path(request: Request):
     payload = await request.json()

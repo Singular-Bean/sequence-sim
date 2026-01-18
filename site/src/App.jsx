@@ -66,10 +66,12 @@ export function App() {
     const [startPoint, setStartPoint] = useState(null)
     const [currentPoint, setCurrentPoint] = useState(null)
     const [predictedPath, setPredictedPath] = useState([])
+    const [busy, setBusy] = useState(false)
     const svgRef = useRef(null)
 
     const createLine = (start, end) => {
         console.log('Line created:', {start, end})
+        setBusy(true)
         fetch(hf_service_url,
             {
                 method: 'POST',
@@ -80,6 +82,7 @@ export function App() {
             .then(result => {
                 setPredictedPath([{...startPoint, type: 'pass'}, {...currentPoint, type: 'pass'}, ...result]);
             })
+            .finally(() => setBusy(false))
     }
 
     const getMousePosition = (event) => {
@@ -126,12 +129,11 @@ export function App() {
 
     return (
         <div className="app">
-            <p>Click two points to define an initial pass anywhere on the pitch. A sequence of passes and final shot will be simulated and displayed</p>
+            {busy ? <p>Simulating passes...</p> : <p>Click two points to define an initial pass anywhere on the pitch. A sequence of passes and final shot will be simulated and displayed</p>}
             <svg
                 ref={svgRef}
                 xmlns="http://www.w3.org/2000/svg"
-                width="1110"
-                height="740"
+                width="100%"
                 viewBox="0 0 111 74"
                 onClick={handleClick}
                 onMouseMove={handleMouseMove}

@@ -8,6 +8,7 @@ Note: Run these commands after changing to the `backend` directory:
 
 ```bash
 cd backend
+python -m venv .venv
 source .venv/Scripts/activate
 pip install -r requirements.txt
 ```
