@@ -16,10 +16,12 @@ short_description: Football passing sequence simulator
     alt="View Demo"
   />
 </a>
-
-<img src="https://img.shields.io/badge/SCIKIT_LEARN-blue?style=for-the-badge"/>
-
-<img src="https://img.shields.io/badge/XGBOOST-blue?style=for-the-badge"/>
+<a href="https://scikit-learn.org/">
+  <img src="https://img.shields.io/badge/Scikit--Learn-blue?style=for-the-badge" alt="Scikit-learn" />
+</a>
+<a href="https://xgboost.ai/">
+  <img src="https://img.shields.io/badge/XGBoost-blue?style=for-the-badge" alt="XGBoost" />
+</a>
 
 This is a football passing sequence simulator built with a React frontend and a Python FastAPI backend running in Hugging Face 🤗.
 
