@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import numpy as np
@@ -50,7 +50,11 @@ def predictNextPass(df, xModel, yModel, temperature=0.75):
     return simulated_x, simulated_y
 
 @app.get("/")
-async def hello():
+@app.get("/{cache_bust}")
+async def hello(response: Response, cache_bust: str | None = None):
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     return {"success": True}
 
 @app.post("/")

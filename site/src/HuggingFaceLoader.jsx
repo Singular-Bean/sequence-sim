@@ -6,7 +6,9 @@ export const HuggingFaceLoader = ( {children} )=>{
     const [loading, setLoading]=useState(true);
 
     useEffect(() => {
-        fetch(hf_service_url).then(()=>{
+        const cacheBustPath = `/${Math.random().toString(16).slice(2, 8)}`;
+        const cacheBustUrl = new URL(cacheBustPath, hf_service_url).toString();
+        fetch(cacheBustUrl).then(()=>{
             new Promise(resolve => setTimeout(resolve, 1000)).then(() => {
                 setLoading(false)
             })
